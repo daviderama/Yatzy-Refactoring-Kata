@@ -1,36 +1,27 @@
 var Yatzy = function(d1, d2, d3, d4, d5) {
     this.dice = [d1, d2, d3, d4, d5];
 
-    this.fours = function()
-    {
-        var sum;
-        sum = 0;
-        for (at = 0; at != 5; at++) {
-            if (this.dice[at] == 4) {
-                sum += 4;
+    this.sumCategory = function(category) {
+        var sum = 0;
+        this.dice.forEach(function(dice) {
+            if (dice == category) {
+                sum += category;
             }
-        }
+        });
         return sum;
     }
 
-    this.fives = function()
-    {
-        s = 0
-        var i
-        for (i = 0; i < this.dice.length; i++)
-            if (this.dice[i] == 5)
-                s = s + 5;
-        return s;
-    }
+    this.fours = function() {
+        return this.sumCategory(4);
+    };
 
-    this.sixes = function()
-    {
-        sum = 0;
-        for (var at = 0; at < this.dice.length; at++)
-            if (this.dice[at] == 6)
-                sum = sum + 6;
-        return sum;
-    }
+    this.fives = function() {
+        return this.sumCategory(5);
+    };
+
+    this.sixes = function() {
+        return this.sumCategory(6);
+    };
 }
 
 
